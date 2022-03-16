@@ -15,7 +15,7 @@
       package:
         name: tree
         state: present
-- name: apache on centos
+- name: install apache on centos
   hosts: centos
   become: yes
   tasks:
