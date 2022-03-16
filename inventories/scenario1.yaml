@@ -15,3 +15,13 @@
       package:
         name: tree
         state: present
+- name: apache on centos
+  hosts: centos
+  become: yes
+  tasks:
+    - name: install apache
+      package:
+        name: apache
+        enable: yes
+        state: started
+ 
