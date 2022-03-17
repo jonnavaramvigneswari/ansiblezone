@@ -1,0 +1,9 @@
+---
+- name: install lampstack on ubuntu and centos
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: install lampstack
+      package:
+        name: "{{ package_name }}"
+        state: present
