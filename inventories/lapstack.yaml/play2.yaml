@@ -9,7 +9,11 @@
         state: present
     - name: install php packages
       package:
-        name: "{{ Item }}"
+        name: "{{ item }}"
         state: present
       loop: "{{ php_packages }}"
+    - name: copy the info
+      copy:
+        src: info.php
+        dest: /var/www/html/info.php
     
