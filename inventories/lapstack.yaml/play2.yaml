@@ -16,4 +16,9 @@
       copy:
         src: info.php
         dest: /var/www/html/info.php
+    - name: enable apache service
+      service:
+        name: "{{ package_name }}"
+        enabled: yes
+        state: started
     
