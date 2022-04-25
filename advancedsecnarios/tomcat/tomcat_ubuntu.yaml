@@ -1,2 +1,28 @@
 ---
-- hosts: appserver
+- name: installing tomcat
+  hosts: appserver
+  become: yes
+  tasks:
+    - name: installing java on ubuntu
+      apt:
+        name: openjdk-8-jdk
+        state: yes
+      when: ansible_facts['distribution'] == "Ubuntu"
+    - name: adduser in tomcat
+      user:
+        name: tomcat
+        home: /opt/tomcat
+        group: tomcat
+        shell: /bin/false
+        state: present
+      when: ansible_facts['distribution'] == "Ubuntu"
+    - name: download tomcat
+      get_url:
+        url: "http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz"
+        dest: "/tmp/apache-tomcat-8.5.5.tar.gz"
+      when: ansible_facts['distribution'] == "Ubuntu"
+    - name: extract tomcat
+      unarchieve: 
+        src: "/tmp/apache-tomcat-8.5.5.tar.gz"
+        dest: "/opt/tomcat"
+      when: ansible_facts['distribution'] == "Ubuntu"
