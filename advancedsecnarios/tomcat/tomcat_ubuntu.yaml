@@ -6,7 +6,8 @@
     - name: installing java on ubuntu
       apt:
         name: openjdk-8-jdk
-        state: yes
+        update_cache: yes
+        state: present
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: adduser in tomcat
       user:
