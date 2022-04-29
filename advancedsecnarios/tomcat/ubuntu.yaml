@@ -38,7 +38,7 @@
         url: "{{ tomcat_download_source }}"
         dest: "{{ tomcat_download_location }}"
       when: ansible_facts['distribution'] == "Ubuntu"
-    - name: archieve tomcat
+    - name: extract tomcat
       unarchive:
         src: "{{ tomcat_download_location }}"
         dest: "{{ tomcat_install_path }}"
