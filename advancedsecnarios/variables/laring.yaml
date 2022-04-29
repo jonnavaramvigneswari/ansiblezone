@@ -8,4 +8,4 @@
         var: ansible_host
     - name: print other parameters
       debug: 
-        msg: "ansible_user = {{ ansible_user }}"
+        msg: ansible_user
