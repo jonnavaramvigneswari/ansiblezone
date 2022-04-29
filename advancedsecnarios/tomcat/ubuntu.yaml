@@ -19,12 +19,12 @@
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: download tomcat
       get_url:
-        url: "curl -O http://apache.mirrors.ionfish.org/tomcat/tomcat-8/v8.5.5/bin/apache-tomcat-8.5.5.tar.gz"
-        dest: "/tmp/apache-tomcat-8.5.5.tar.gz"
+        url: "https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.78/bin/apache-tomcat-8.5.78.zip"
+        dest: "/tmp/apache-tomcat-8.5.78.tar.gz"
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: archieve tomcat
       unarchive:
-        src: "/tmp/apache-tomcat-8.5.5.tar.gz"
+        src: "/tmp/apache-tomcat-8.5.78.tar.gz"
         dest: "/opt/tomcat"
       when: ansible_facts['distribution'] == "Ubuntu"
         
