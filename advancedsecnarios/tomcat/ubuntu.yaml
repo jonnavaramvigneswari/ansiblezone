@@ -2,7 +2,7 @@
 - name: installing tomcat on ubuntu
   become: yes
   hosts: appserver
-  vars:
+  vars_files:
     - vars/ubuntu_vars.yaml
   tasks:
     - name: installing java
