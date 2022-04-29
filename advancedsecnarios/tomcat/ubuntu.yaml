@@ -41,6 +41,6 @@
     - name: archieve tomcat
       unarchive:
         src: "{{ tomcat_download_location }}"
-        dest: "{{ tomcat_install-path }}"
+        dest: "{{ tomcat_install_path }}"
       when: ansible_facts['distribution'] == "Ubuntu"
         
