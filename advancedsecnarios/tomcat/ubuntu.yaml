@@ -4,7 +4,7 @@
   hosts: appserver
   vars:
     username: tomcat
-    java-package: openjdk-8-jdk
+    java_package: openjdk-8-jdk
   vars_files:
     - vars/ubuntu_vars.yaml
   tasks:
