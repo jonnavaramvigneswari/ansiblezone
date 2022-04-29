@@ -1,0 +1,10 @@
+---
+- name: installing tomcat on ubuntu
+  become: yes
+  hosts: appserver
+  tasks:
+    - name: installing java
+      apt:
+        name: openjdk-8-jdk
+        update_cache: yes
+        state: present
