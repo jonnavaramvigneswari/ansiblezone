@@ -5,6 +5,7 @@
   vars:
     username: tomcat
     java_package: openjdk-8-jdk
+    unzip_package: unzip
   vars_files:
     - vars/ubuntu_vars.yaml
   tasks:
@@ -19,14 +20,19 @@
         name: "{{ username }}"
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"
-    - name: useradd tomcat
+    - name: adduser tomcat
       user:
         name: "{{ username }}"
-        home: "{{ tomcat_install-path }}"
+        home: "{{ tomcat_install_path }}"
         group: "{{ username }}"
         shell: /bin/false
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"
+    - name: ensure unzip java_package
+      package: 
+        name: "{{ unzip_package }}"
+        state: present
+      when: ansible_facts['distribution'] == "Ubuntu
     - name: download tomcat
       get_url:
         url: "{{ tomcat_download_source }}"
