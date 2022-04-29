@@ -1,0 +1,8 @@
+---
+- name: understanding parameters
+  hosts: all
+  become: yes
+  tasks:
+    - name: print ansible_host
+      debug:
+        var: ansible_host
