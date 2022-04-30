@@ -43,4 +43,14 @@
         src: "{{ tomcat_download_location }}"
         dest: "{{ tomcat_install_path }}"
       when: ansible_facts['distribution'] == "Ubuntu"
+    - name: added vars_files
+      file:
+        src: /opt/tomcat/apache-tomcat-8.5.78.zip
+        dest: /opt/tomcat/latest
+        owner: "{{ username }}"
+        group: "{{ username }}"
+        state: link
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+        
         
