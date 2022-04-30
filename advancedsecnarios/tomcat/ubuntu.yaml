@@ -5,7 +5,6 @@
   vars:
     username: tomcat
     java_package: openjdk-8-jdk
-    unzip_package: unzip
   vars_files:
     - vars/ubuntu_vars.yaml
   tasks:
@@ -28,11 +27,6 @@
         shell: /bin/false
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"
-    - name: ensure unzip java_package
-      package: 
-        name: "{{ unzip_package }}"
-        state: present
-      when: ansible_facts['distribution'] == "Ubuntu"
     - name: download tomcat
       get_url:
         url: "{{ tomcat_download_source }}"
@@ -42,10 +36,11 @@
       unarchive:
         src: "{{ tomcat_download_location }}"
         dest: "{{ tomcat_install_path }}"
+        remote_src: yes
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: added files
       file:
-        src: /opt/tomcat/apache-tomcat-8.5.61.zip
+        src: /opt/tomcat/apache-tomcat-8.5.61.tar.gz
         dest: /opt/tomcat/latest
         owner: "{{ username }}"
         group: "{{ username }}"
