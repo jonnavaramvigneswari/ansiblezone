@@ -14,6 +14,11 @@
         url: "https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.8/bin/apache-tomcat-10.0.8.tar.gz"
         dest: "/tmp/apache-tomcat-10.0.8.tar.gz"
       when: ansible_facts['distribution'] == "Ubuntu"
+    - name: Ensure group "somegroup" exists
+      group:
+        name: tomcat
+        state: present
+      when: ansible_facts['distribution'] == "Ubuntu"
     - name: creating dir
       ansible.builtin.file:
         path: "/tmp/apache-tomcat-10.0.8.tar.gz"
