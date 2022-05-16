@@ -14,6 +14,12 @@
         url: "https://archive.apache.org/dist/tomcat/tomcat-10/v10.0.8/bin/apache-tomcat-10.0.8.tar.gz"
         dest: "/tmp/apache-tomcat-10.0.8.tar.gz"
       when: ansible_facts['distribution'] == "Ubuntu"
+    - name: creating dir
+      ansible.builtin.file:
+        path: /opt/tomcat
+        owner: tomcat
+        group: tomcat
+      when: ansible_facts['distribution'] == "Ubuntu"
     - name: extract tomcat
       unarchive:
         src: "/tmp/apache-tomcat-10.0.8.tar.gz"
