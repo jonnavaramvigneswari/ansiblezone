@@ -4,7 +4,7 @@ localhost
 
 
 [ubuntu]
-172.31.12.129
+172.31.12.129 ansible_user=ansibleother ansible_ssh_password=ansibleother
 
 [appserver]
 172.31.12.129

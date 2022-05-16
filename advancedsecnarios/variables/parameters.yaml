@@ -6,3 +6,6 @@
     - name: print parameters
       debug:
         var: ansible_host
+    - name: print another
+      debug:
+        var: ansible_user
