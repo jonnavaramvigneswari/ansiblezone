@@ -1,0 +1,15 @@
+[centos]
+localhost
+172.31.5.56
+
+
+[ubuntu]
+172.31.12.129 
+
+[appserver]
+172.31.12.129
+172.31.5.56
+
+
+[webserver]
+localhost
