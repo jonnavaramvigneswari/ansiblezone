@@ -1,0 +1,11 @@
+---
+- name: installing tomcat on ubuntu
+  hosts: appserver
+  become: yes
+  tasks:
+    - name: installing java on ubuntu
+      apt: 
+        name: openjdk-8-jdk
+        update_cache: yes
+        state: yes
+      when: ansible_facts['distribution'] == "Ubuntu"
