@@ -21,8 +21,8 @@
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: creating dir
       ansible.builtin.file:
-        path: "/tmp/apache-tomcat-10.0.8.tar.gz"
-        owner: root
+        path: /opt/tomcat
+        owner: tomcat
         group: tomcat
         mode: '0644'
         state: file
