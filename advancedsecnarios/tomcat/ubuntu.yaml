@@ -19,11 +19,12 @@
         path: /opt/tomcat
         owner: tomcat
         group: tomcat
+        state: present
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: extract tomcat
       unarchive:
         src: "/tmp/apache-tomcat-10.0.8.tar.gz"
-        dest: "/opt/tomcat/"
+        dest: "/opt/tomcat"
         remote_src: yes
       when: ansible_facts['distribution'] == "Ubuntu"
       
