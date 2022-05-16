@@ -17,9 +17,10 @@
     - name: creating dir
       ansible.builtin.file:
         path: "/tmp/apache-tomcat-10.0.8.tar.gz"
-        owner: tomcat
+        owner: root
         group: tomcat
         mode: '0644'
+        state: file
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: extract tomcat
       unarchive:
