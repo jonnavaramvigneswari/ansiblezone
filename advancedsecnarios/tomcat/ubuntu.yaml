@@ -30,6 +30,7 @@
     - name: unzip
       package:
         name: unzip
+        update_cache: yes
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: extract tomcat
