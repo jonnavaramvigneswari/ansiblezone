@@ -41,7 +41,7 @@
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: mv tomcat
       copy: 
-        src: "/tmp/apache-tomcat-10.0.8.tar.gz"
+        src: "apache-tomcat-10.0.8/*"
         dest: "/opt/tomcat/"
         remote_src: yes
       when: ansible_facts['distribution'] == "Ubuntu"
