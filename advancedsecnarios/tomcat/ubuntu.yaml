@@ -19,14 +19,13 @@
         name: tomcat
         state: present
       when: ansible_facts['distribution'] == "Ubuntu"
-    - name: creating dir
-      ansible.builtin.file:
-        path: "/tmp/apache-tomcat-10.0.8.tar.gz"
+    - name: creating user
+      user: 
+        name: tomcat
         home: /opt/tomcat
-        owner: tomcat
         group: tomcat
-        mode: '0644'
-        state: absent
+        shell: /bin/false
+        state: present
       when: ansible_facts['distribution'] == "Ubuntu"
     - name: extract tomcat
       unarchive:
